@@ -37,7 +37,7 @@ const PasswordInput = ({ value, onChange, placeholder }) => {
 
 PasswordInput.propTypes = {
   value: PropTypes.node,
-  onChange: PropTypes.node,
+  onChange: PropTypes.func,
   placeholder: PropTypes.node,
 };
 

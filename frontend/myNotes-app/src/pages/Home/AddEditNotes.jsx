@@ -1,6 +1,7 @@
 import { useState } from "react";
 import TagInput from "../../components/input/TagInput";
 import { MdClose } from "react-icons/md";
+import PropTypes from "prop-types";
 
 const AddEditNotes = ({ noteData, type, onClose }) => {
   const [title, setTitle] = useState("");
@@ -76,4 +77,8 @@ const AddEditNotes = ({ noteData, type, onClose }) => {
   );
 };
 
+AddEditNotes.propTypes = {
+  onClose: PropTypes.func,
+  type: PropTypes.string,
+};
 export default AddEditNotes;

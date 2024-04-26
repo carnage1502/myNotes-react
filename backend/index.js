@@ -91,7 +91,7 @@ app.post("/login", async (req, res) => {
 
   if (userInfo.email === email && userInfo.password === password) {
     const user = { user: userInfo };
-    const acccessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {
+    const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {
       expiresIn: "36000m",
     });
 
@@ -99,7 +99,7 @@ app.post("/login", async (req, res) => {
       error: false,
       message: "Login Successful",
       email,
-      acccessToken,
+      accessToken,
     });
   } else {
     return res.status(400).json({
