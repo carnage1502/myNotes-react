@@ -8,6 +8,7 @@ const App = () => {
     <div>
       <BrowserRouter>
         <Routes>
+          <Route index element={<Login />} />
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home />} />
           <Route path="/register" element={<Register />} />

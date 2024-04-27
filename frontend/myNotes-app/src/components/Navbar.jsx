@@ -4,7 +4,7 @@ import SearchBar from "./SearchBar/SearchBar";
 import { useState } from "react";
 import PropTypes from "prop-types";
 
-const Navbar = ({ userInfo }) => {
+const Navbar = ({ userInfo, onSearchNote, handleClearSearch }) => {
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
 
@@ -13,9 +13,15 @@ const Navbar = ({ userInfo }) => {
     navigate("/login");
   };
 
-  const handleSearch = () => {};
+  const handleSearch = () => {
+    if (search) {
+      onSearchNote(search);
+    }
+  };
+
   const onClearSearch = () => {
     setSearch("");
+    handleClearSearch();
   };
   return (
     <div className="bg-white flex items-center justify-between px-6 py-2 drop-shadow">
@@ -36,5 +42,7 @@ const Navbar = ({ userInfo }) => {
 
 Navbar.propTypes = {
   userInfo: PropTypes.object,
+  onSearchNote: PropTypes.func,
+  handleClearSearch: PropTypes.func,
 };
 export default Navbar;
